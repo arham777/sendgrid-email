@@ -1,0 +1,600 @@
+2025-04-11 15:14:25,578 - INFO - Getting email content via input
+2025-04-11 15:17:59,933 - INFO - Detected potential personalization tags in content
+2025-04-11 15:18:08,723 - INFO - Reading recipients from 'recipients.csv'
+2025-04-11 15:18:08,731 - INFO - Reading data from 'recipients.csv'
+2025-04-11 15:18:08,732 - INFO - Found 1 valid email addresses
+2025-04-11 15:18:08,733 - INFO - Processing attachment from './h-da.png'
+2025-04-11 15:18:08,807 - INFO - Attachment created successfully (Type: image/png, Content-ID: email_image)
+2025-04-11 15:18:08,815 - INFO - Initializing SendGrid client
+2025-04-11 15:18:08,815 - INFO - Sending to 1 recipients in 1 batch(es)
+2025-04-11 15:18:08,815 - INFO - Processing batch 1/1 (1 recipients)
+2025-04-11 15:18:08,815 - ERROR - Error sending batch 1: get expected at least 1 argument, got 0
+2025-04-11 15:18:08,815 - INFO - ====== Email Sending Complete ======
+2025-04-11 15:18:08,815 - INFO - Total recipients processed: 1
+2025-04-11 15:18:08,815 - INFO - Successfully sent: 0
+2025-04-11 15:18:08,815 - WARNING - Failed batches: 1
+2025-04-11 15:18:08,815 - WARNING - Approximately 1 emails failed to send
+2025-04-11 15:21:50,430 - INFO - TEST MODE ENABLED - Emails will not actually be sent
+2025-04-11 15:23:02,451 - INFO - Reading content from CSV 'content.csv'
+2025-04-11 15:23:02,451 - INFO - Subject: 'Mail through csv content auto'
+2025-04-11 15:23:02,451 - INFO - HTML Content: Read (length: 229)
+2025-04-11 15:23:02,451 - INFO - Image Path: Provided (./h-da.png)
+2025-04-11 15:23:02,451 - INFO - Reading recipients from 'recipients.csv'
+2025-04-11 15:23:02,459 - INFO - Reading data from 'recipients.csv'
+2025-04-11 15:23:02,459 - INFO - Found 1 valid email addresses
+2025-04-11 15:23:02,459 - INFO - Processing attachment from './h-da.png'
+2025-04-11 15:23:02,596 - INFO - Attachment created successfully (Type: image/png, Content-ID: email_image)
+2025-04-11 15:23:02,596 - INFO - Initializing SendGrid client
+2025-04-11 15:23:02,604 - INFO - Sending to 1 recipients in 1 batch(es)
+2025-04-11 15:23:02,604 - INFO - TEST MODE: Emails will not actually be sent
+2025-04-11 15:23:02,604 - INFO - Processing batch 1/1 (1 recipients)
+2025-04-11 15:23:02,604 - ERROR - Error sending batch 1: Please use a To, From, Cc or Bcc object.
+2025-04-11 15:23:02,604 - INFO - ====== Email Sending Complete ======
+2025-04-11 15:23:02,604 - INFO - Total recipients processed: 1
+2025-04-11 15:23:02,604 - INFO - Successfully sent: 0
+2025-04-11 15:23:02,604 - WARNING - Failed batches: 1
+2025-04-11 15:23:02,604 - WARNING - Approximately 1 emails failed to send
+2025-04-11 15:23:02,612 - INFO - TEST MODE: No emails were actually sent
+2025-04-11 15:24:07,944 - INFO - TEST MODE ENABLED - Emails will not actually be sent
+2025-04-11 15:24:12,835 - INFO - Reading content from CSV 'content.csv'
+2025-04-11 15:24:12,835 - INFO - Subject: 'Mail through csv content auto'
+2025-04-11 15:24:12,835 - INFO - HTML Content: Read (length: 229)
+2025-04-11 15:24:12,835 - INFO - Image Path: Provided (./h-da.png)
+2025-04-11 15:24:12,835 - INFO - Reading recipients from 'recipients.csv'
+2025-04-11 15:24:12,835 - INFO - Reading data from 'recipients.csv'
+2025-04-11 15:24:12,835 - INFO - Found 1 valid email addresses
+2025-04-11 15:24:12,835 - INFO - Processing attachment from './h-da.png'
+2025-04-11 15:24:12,928 - INFO - Attachment created successfully (Type: image/png, Content-ID: email_image)
+2025-04-11 15:24:12,928 - INFO - Initializing SendGrid client
+2025-04-11 15:24:12,928 - INFO - Sending to 1 recipients in 1 batch(es)
+2025-04-11 15:24:12,928 - INFO - TEST MODE: Emails will not actually be sent
+2025-04-11 15:24:12,928 - INFO - Processing batch 1/1 (1 recipients)
+2025-04-11 15:24:12,928 - INFO - TEST MODE - Would send to: arhamawan529@gmail.com
+2025-04-11 15:24:12,990 - INFO - ====== Email Sending Complete ======
+2025-04-11 15:24:12,990 - INFO - Total recipients processed: 1
+2025-04-11 15:24:12,990 - INFO - Successfully sent: 1
+2025-04-11 15:24:12,990 - INFO - All emails processed successfully
+2025-04-11 15:24:12,990 - INFO - TEST MODE: No emails were actually sent
+2025-04-11 15:24:34,669 - INFO - Reading content from CSV 'content.csv'
+2025-04-11 15:24:34,669 - INFO - Subject: 'Mail through csv content auto'
+2025-04-11 15:24:34,669 - INFO - HTML Content: Read (length: 229)
+2025-04-11 15:24:34,677 - INFO - Image Path: Provided (./h-da.png)
+2025-04-11 15:24:34,677 - INFO - Reading recipients from 'recipients.csv'
+2025-04-11 15:24:34,677 - INFO - Reading data from 'recipients.csv'
+2025-04-11 15:24:34,677 - INFO - Found 1 valid email addresses
+2025-04-11 15:24:34,677 - INFO - Processing attachment from './h-da.png'
+2025-04-11 15:24:34,754 - INFO - Attachment created successfully (Type: image/png, Content-ID: email_image)
+2025-04-11 15:24:34,754 - INFO - Initializing SendGrid client
+2025-04-11 15:24:34,754 - INFO - Sending to 1 recipients in 1 batch(es)
+2025-04-11 15:24:34,754 - INFO - Processing batch 1/1 (1 recipients)
+2025-04-11 15:24:36,691 - INFO - Email sent to arhamawan529@gmail.com (Status: 202)
+2025-04-11 15:24:36,751 - INFO - ====== Email Sending Complete ======
+2025-04-11 15:24:36,751 - INFO - Total recipients processed: 1
+2025-04-11 15:24:36,751 - INFO - Successfully sent: 1
+2025-04-11 15:24:36,751 - INFO - All emails processed successfully
+2025-04-11 15:28:02,944 - INFO - Getting email content via input
+2025-04-11 15:29:53,400 - INFO - Detected potential personalization tags in content
+2025-04-11 15:30:02,976 - INFO - Reading recipients from 'recipients.csv'
+2025-04-11 15:30:02,976 - INFO - Reading data from 'recipients.csv'
+2025-04-11 15:30:02,985 - INFO - Found 1 valid email addresses
+2025-04-11 15:30:02,985 - INFO - Processing attachment from './h-da.png'
+2025-04-11 15:30:03,069 - INFO - Attachment created successfully (Type: image/png, Content-ID: email_image)
+2025-04-11 15:30:03,069 - INFO - Initializing SendGrid client
+2025-04-11 15:30:03,069 - INFO - Sending to 1 recipients in 1 batch(es)
+2025-04-11 15:30:03,069 - INFO - Processing batch 1/1 (1 recipients)
+2025-04-11 15:30:04,167 - INFO - Email sent to arhamawan529@gmail.com (Status: 202)
+2025-04-11 15:30:04,219 - INFO - ====== Email Sending Complete ======
+2025-04-11 15:30:04,219 - INFO - Total recipients processed: 1
+2025-04-11 15:30:04,219 - INFO - Successfully sent: 1
+2025-04-11 15:30:04,219 - INFO - All emails processed successfully
+2025-04-11 15:37:21,363 - INFO - Reading content from CSV 'content.csv'
+2025-04-11 15:37:21,363 - INFO - Subject: 'Mail through csv content auto using SendGrid'
+2025-04-11 15:37:21,371 - INFO - HTML Content: Read (length: 242)
+2025-04-11 15:37:21,371 - INFO - Image Path: Provided (./h-da.png)
+2025-04-11 15:37:21,371 - INFO - Detected potential personalization tags in content
+2025-04-11 15:37:21,371 - INFO - Reading recipients from 'recipients.csv'
+2025-04-11 15:37:21,371 - INFO - Reading data from 'recipients.csv'
+2025-04-11 15:37:21,371 - INFO - Found 7 valid email addresses
+2025-04-11 15:37:21,371 - INFO - Processing attachment from './h-da.png'
+2025-04-11 15:37:21,454 - INFO - Attachment created successfully (Type: image/png, Content-ID: email_image)
+2025-04-11 15:37:21,454 - INFO - Initializing SendGrid client
+2025-04-11 15:37:21,454 - INFO - Sending to 7 recipients in 1 batch(es)
+2025-04-11 15:37:21,454 - INFO - Processing batch 1/1 (7 recipients)
+2025-04-11 15:37:23,481 - INFO - Email sent to arhamawan529@gmail.com (Status: 202)
+2025-04-11 15:37:24,708 - INFO - Email sent to arhamathar11@gmail.com (Status: 202)
+2025-04-11 15:37:26,065 - INFO - Email sent to hexscope247x@gmail.com (Status: 202)
+2025-04-11 15:37:27,316 - INFO - Email sent to 70137556@student.uol.edu.pk (Status: 202)
+2025-04-11 15:37:28,530 - INFO - Email sent to 70132240@student.uol.edu.pk (Status: 202)
+2025-04-11 15:37:29,748 - INFO - Email sent to zaingee@gmail.com (Status: 202)
+2025-04-11 15:37:31,018 - INFO - Email sent to arham.athar@cybergen.com (Status: 202)
+2025-04-11 15:37:31,069 - INFO - ====== Email Sending Complete ======
+2025-04-11 15:37:31,069 - INFO - Total recipients processed: 7
+2025-04-11 15:37:31,069 - INFO - Successfully sent: 7
+2025-04-11 15:37:31,069 - INFO - All emails processed successfully
+2025-04-13 19:19:44,736 - INFO - Checking for content data in 'email_data.csv'
+2025-04-13 19:19:44,736 - INFO - Found content headers in 'email_data.csv'
+2025-04-13 19:19:44,752 - INFO - Found content in row 2
+2025-04-13 19:19:44,752 - INFO - Subject: 'Welcome to our newsletter!'
+2025-04-13 19:19:44,752 - INFO - HTML Content: Read (length: 249)
+2025-04-13 19:19:44,754 - INFO - Image Path: Provided (./newsletter_header.jpg)
+2025-04-13 19:19:44,754 - INFO - Detected potential personalization tags in content
+2025-04-13 19:19:44,760 - INFO - Using content from 'email_data.csv' (row 2)
+2025-04-13 19:19:44,761 - INFO - Reading recipients from 'email_data.csv'
+2025-04-13 19:19:44,761 - INFO - Reading data from 'email_data.csv'
+2025-04-13 19:19:44,761 - INFO - Skipping row 2 (used for content)
+2025-04-13 19:19:44,761 - INFO - Found 5 valid email addresses
+2025-04-13 19:19:44,761 - INFO - Processing attachment from './newsletter_header.jpg'
+2025-04-13 19:19:44,761 - ERROR - Image file not found at path: ./newsletter_header.jpg
+2025-04-13 19:19:44,761 - WARNING - An image path was provided, but attachment creation failed. Sending without image
+2025-04-13 19:19:44,761 - INFO - Initializing SendGrid client
+2025-04-13 19:19:44,761 - INFO - Sending to 5 recipients in 1 batch(es)
+2025-04-13 19:19:44,761 - INFO - Processing batch 1/1 (5 recipients)
+2025-04-13 19:19:46,348 - INFO - Email sent to john.doe@example.com (Status: 202)
+2025-04-13 19:19:47,228 - INFO - Email sent to jane.smith@example.com (Status: 202)
+2025-04-13 19:19:48,083 - INFO - Email sent to robert.johnson@example.com (Status: 202)
+2025-04-13 19:19:48,953 - INFO - Email sent to sarah.williams@example.com (Status: 202)
+2025-04-13 19:19:49,906 - INFO - Email sent to michael.brown@example.com (Status: 202)
+2025-04-13 19:19:49,958 - INFO - ====== Email Sending Complete ======
+2025-04-13 19:19:49,958 - INFO - Total recipients processed: 5
+2025-04-13 19:19:49,958 - INFO - Successfully sent: 5
+2025-04-13 19:19:49,958 - INFO - All emails processed successfully
+2025-04-13 19:25:23,845 - INFO - Checking for content data in 'email_data.csv'
+2025-04-13 19:25:23,845 - INFO - Found content headers in 'email_data.csv'
+2025-04-13 19:25:23,845 - INFO - Found content in row 2
+2025-04-13 19:25:23,847 - INFO - Subject: 'Welcome to our newsletter!'
+2025-04-13 19:25:23,848 - INFO - HTML Content: Read (length: 270)
+2025-04-13 19:25:23,849 - INFO - Image Path: Provided (./newsletter_header.jpg)
+2025-04-13 19:25:23,849 - INFO - Detected potential personalization tags in content
+2025-04-13 19:25:23,851 - INFO - Using content from 'email_data.csv' (row 2)
+2025-04-13 19:25:23,851 - INFO - Reading recipients from 'email_data.csv'
+2025-04-13 19:25:23,851 - INFO - Reading data from 'email_data.csv'
+2025-04-13 19:25:23,851 - INFO - Skipping row 2 (used for content)
+2025-04-13 19:25:23,851 - INFO - Found 3 valid email addresses
+2025-04-13 19:25:23,851 - INFO - Processing attachment from './newsletter_header.jpg'
+2025-04-13 19:25:23,851 - ERROR - Image file not found at path: ./newsletter_header.jpg
+2025-04-13 19:25:23,851 - WARNING - An image path was provided, but attachment creation failed. Sending without image
+2025-04-13 19:25:23,851 - INFO - Initializing SendGrid client
+2025-04-13 19:25:23,851 - INFO - Sending to 3 recipients in 1 batch(es)
+2025-04-13 19:25:23,851 - INFO - Processing batch 1/1 (3 recipients)
+2025-04-13 19:25:25,310 - INFO - Email sent to arham.athar@cybergen.com (Status: 202)
+2025-04-13 19:25:26,171 - INFO - Email sent to arhamawan529@gmail.com (Status: 202)
+2025-04-13 19:25:27,058 - INFO - Email sent to hexscope247x@gmail.com (Status: 202)
+2025-04-13 19:25:27,110 - INFO - ====== Email Sending Complete ======
+2025-04-13 19:25:27,110 - INFO - Total recipients processed: 3
+2025-04-13 19:25:27,110 - INFO - Successfully sent: 3
+2025-04-13 19:25:27,110 - INFO - All emails processed successfully
+2025-04-13 19:28:06,723 - INFO - Checking for content data in 'email_data.csv'
+2025-04-13 19:28:06,723 - INFO - Found content headers in 'email_data.csv'
+2025-04-13 19:28:06,731 - INFO - Found content in row 2
+2025-04-13 19:28:06,731 - INFO - Subject: 'Welcome to our newsletter!'
+2025-04-13 19:28:06,731 - INFO - HTML Content: Read (length: 272)
+2025-04-13 19:28:06,731 - INFO - Image Path: Provided (./newsletter_header.jpg)
+2025-04-13 19:28:06,731 - INFO - Detected potential personalization tags in content
+2025-04-13 19:28:06,731 - INFO - Using content from 'email_data.csv' (row 2)
+2025-04-13 19:28:06,731 - INFO - Reading recipients from 'email_data.csv'
+2025-04-13 19:28:06,731 - INFO - Reading data from 'email_data.csv'
+2025-04-13 19:28:06,731 - INFO - Skipping row 2 (used for content)
+2025-04-13 19:28:06,731 - INFO - Found 3 valid email addresses
+2025-04-13 19:28:06,739 - INFO - Processing attachment from './newsletter_header.jpg'
+2025-04-13 19:28:06,739 - ERROR - Image file not found at path: ./newsletter_header.jpg
+2025-04-13 19:28:06,739 - WARNING - An image path was provided, but attachment creation failed. Sending without image
+2025-04-13 19:28:06,739 - INFO - Initializing SendGrid client
+2025-04-13 19:28:06,739 - INFO - Sending to 3 recipients in 1 batch(es)
+2025-04-13 19:28:06,739 - INFO - Processing batch 1/1 (3 recipients)
+2025-04-13 19:28:08,252 - INFO - Email sent to arham.athar@cybergen.com (Status: 202)
+2025-04-13 19:28:08,914 - INFO - Email sent to arhamawan529@gmail.com (Status: 202)
+2025-04-13 19:28:09,655 - INFO - Email sent to hexscope247x@gmail.com (Status: 202)
+2025-04-13 19:28:09,710 - INFO - ====== Email Sending Complete ======
+2025-04-13 19:28:09,710 - INFO - Total recipients processed: 3
+2025-04-13 19:28:09,710 - INFO - Successfully sent: 3
+2025-04-13 19:28:09,710 - INFO - All emails processed successfully
+2025-04-13 19:37:17,173 - INFO - Checking for content data in 'email_data.csv'
+2025-04-13 19:37:17,173 - INFO - Found content headers in 'email_data.csv'
+2025-04-13 19:37:17,173 - INFO - Found content in row 2
+2025-04-13 19:37:17,173 - INFO - Subject: 'Welcome to our newsletter!'
+2025-04-13 19:37:17,173 - INFO - HTML Content: Read (length: 272)
+2025-04-13 19:37:17,173 - INFO - Image Path: Provided (./newsletter_header.jpg)
+2025-04-13 19:37:17,181 - INFO - Detected potential personalization tags in content
+2025-04-13 19:37:17,181 - INFO - Using content from 'email_data.csv' (row 2)
+2025-04-13 19:37:17,181 - INFO - Reading recipients from 'email_data.csv'
+2025-04-13 19:37:17,181 - INFO - Reading data from 'email_data.csv'
+2025-04-13 19:37:17,181 - INFO - Skipping row 2 (used for content)
+2025-04-13 19:37:17,181 - INFO - Found 2 valid email addresses
+2025-04-13 19:37:17,181 - INFO - Processing attachment from './newsletter_header.jpg'
+2025-04-13 19:37:17,189 - ERROR - Image file not found at path: ./newsletter_header.jpg
+2025-04-13 19:37:17,189 - WARNING - An image path was provided, but attachment creation failed. Sending without image
+2025-04-13 19:37:17,189 - INFO - Initializing SendGrid client
+2025-04-13 19:37:17,189 - INFO - Sending to 2 recipients in 1 batch(es)
+2025-04-13 19:37:17,189 - INFO - Processing batch 1/1 (2 recipients)
+2025-04-13 19:37:18,710 - INFO - Email sent to arhamawan529@gmail.com (Status: 202)
+2025-04-13 19:37:19,645 - INFO - Email sent to hexscope247x@gmail.com (Status: 202)
+2025-04-13 19:37:19,705 - INFO - ====== Email Sending Complete ======
+2025-04-13 19:37:19,705 - INFO - Total recipients processed: 2
+2025-04-13 19:37:19,705 - INFO - Successfully sent: 2
+2025-04-13 19:37:19,705 - INFO - All emails processed successfully
+2025-04-13 19:42:59,350 - INFO - TEST MODE ENABLED - Emails will not actually be sent
+2025-04-13 19:42:59,350 - INFO - Detected columns in 'email_data.csv':
+2025-04-13 19:42:59,350 - INFO -   - email: 'EMAIL'
+2025-04-13 19:42:59,350 - INFO -   - first_name: 'FIRST_NAME'
+2025-04-13 19:42:59,350 - INFO -   - last_name: 'LAST_NAME'
+2025-04-13 19:42:59,350 - INFO -   - subject: 'Subject'
+2025-04-13 19:42:59,358 - INFO -   - html_body: 'HTML_Body'
+2025-04-13 19:42:59,358 - INFO -   - image_path: 'Image_Attachment_Path'
+2025-04-13 19:42:59,358 - INFO - Checking for content data in 'email_data.csv'
+2025-04-13 19:42:59,358 - INFO - Found content in row 2
+2025-04-13 19:42:59,358 - INFO - Subject: 'Welcome to our newsletter!'
+2025-04-13 19:42:59,358 - INFO - HTML Content: Read (length: 272)
+2025-04-13 19:42:59,358 - INFO - Image Path: Provided (./newsletter_header.jpg)
+2025-04-13 19:42:59,358 - INFO - Detected personalization tags in content
+2025-04-13 19:42:59,366 - INFO - Using content from 'email_data.csv' (row 2)
+2025-04-13 19:42:59,366 - INFO - Reading recipients from 'email_data.csv' using column 'EMAIL'
+2025-04-13 19:42:59,366 - INFO - Reading data from 'email_data.csv'
+2025-04-13 19:42:59,366 - INFO - Skipping row 2 (used for content)
+2025-04-13 19:42:59,366 - INFO - Found 2 valid email addresses
+2025-04-13 19:42:59,374 - INFO - Processing attachment from './newsletter_header.jpg'
+2025-04-13 19:42:59,374 - ERROR - Image file not found at path: ./newsletter_header.jpg
+2025-04-13 19:42:59,374 - WARNING - An image path was provided, but attachment creation failed. Sending without image
+2025-04-13 19:42:59,374 - INFO - Initializing SendGrid client
+2025-04-13 19:42:59,374 - INFO - Sending to 2 recipients in 1 batch(es)
+2025-04-13 19:42:59,374 - INFO - TEST MODE: Emails will not actually be sent
+2025-04-13 19:42:59,374 - INFO - Processing batch 1/1 (2 recipients)
+2025-04-13 19:42:59,374 - INFO - TEST MODE - Would send to: arhamawan529@gmail.com
+2025-04-13 19:42:59,374 - INFO - TEST MODE - Personalized content preview: <html><body><h1>Hi Arham,</br>Welcome to Our Newsletter</h1><p>Hello everyone,</p><p>This is the ema...
+2025-04-13 19:42:59,433 - INFO - TEST MODE - Would send to: hexscope247x@gmail.com
+2025-04-13 19:42:59,433 - INFO - TEST MODE - Personalized content preview: <html><body><h1>Hi Alex,</br>Welcome to Our Newsletter</h1><p>Hello everyone,</p><p>This is the emai...
+2025-04-13 19:42:59,489 - INFO - ====== Email Sending Complete ======
+2025-04-13 19:42:59,489 - INFO - Total recipients processed: 2
+2025-04-13 19:42:59,489 - INFO - Successfully sent: 2
+2025-04-13 19:42:59,489 - INFO - All emails processed successfully
+2025-04-13 19:42:59,489 - INFO - TEST MODE: No emails were actually sent
+2025-04-13 19:45:08,112 - INFO - Detected columns in 'email_data.csv':
+2025-04-13 19:45:08,120 - INFO -   - email: 'EMAIL'
+2025-04-13 19:45:08,120 - INFO -   - first_name: 'FIRST_NAME'
+2025-04-13 19:45:08,120 - INFO -   - last_name: 'LAST_NAME'
+2025-04-13 19:45:08,120 - INFO -   - subject: 'Subject'
+2025-04-13 19:45:08,120 - INFO -   - html_body: 'HTML_Body'
+2025-04-13 19:45:08,120 - INFO -   - image_path: 'Image_Attachment_Path'
+2025-04-13 19:45:08,120 - INFO - Checking for content data in 'email_data.csv'
+2025-04-13 19:45:08,120 - INFO - Found content in row 2
+2025-04-13 19:45:08,120 - INFO - Subject: 'Welcome to our newsletter!'
+2025-04-13 19:45:08,120 - INFO - HTML Content: Read (length: 272)
+2025-04-13 19:45:08,120 - INFO - Image Path: Provided (./h-da.png)
+2025-04-13 19:45:08,120 - INFO - Detected personalization tags in content
+2025-04-13 19:45:08,128 - INFO - Using content from 'email_data.csv' (row 2)
+2025-04-13 19:45:08,128 - INFO - Reading recipients from 'email_data.csv' using column 'EMAIL'
+2025-04-13 19:45:08,128 - INFO - Reading data from 'email_data.csv'
+2025-04-13 19:45:08,128 - INFO - Skipping row 2 (used for content)
+2025-04-13 19:45:08,128 - INFO - Found 2 valid email addresses
+2025-04-13 19:45:08,138 - INFO - Processing attachment from './h-da.png'
+2025-04-13 19:45:08,239 - INFO - Attachment created successfully (Type: image/png, Content-ID: email_image)
+2025-04-13 19:45:08,239 - INFO - Initializing SendGrid client
+2025-04-13 19:45:08,239 - INFO - Sending to 2 recipients in 1 batch(es)
+2025-04-13 19:45:08,239 - INFO - Processing batch 1/1 (2 recipients)
+2025-04-13 19:45:09,974 - INFO - Email sent to arhamawan529@gmail.com (Status: 202)
+2025-04-13 19:45:11,516 - INFO - Email sent to hexscope247x@gmail.com (Status: 202)
+2025-04-13 19:45:11,570 - INFO - ====== Email Sending Complete ======
+2025-04-13 19:45:11,570 - INFO - Total recipients processed: 2
+2025-04-13 19:45:11,596 - INFO - Successfully sent: 2
+2025-04-13 19:45:11,609 - INFO - All emails processed successfully
+2025-04-13 19:48:37,431 - INFO - Detected columns in 'email_data.csv':
+2025-04-13 19:48:37,431 - INFO -   - email: 'EMAIL'
+2025-04-13 19:48:37,431 - INFO -   - first_name: 'FIRST_NAME'
+2025-04-13 19:48:37,431 - INFO -   - last_name: 'LAST_NAME'
+2025-04-13 19:48:37,431 - INFO -   - subject: 'Subject'
+2025-04-13 19:48:37,431 - INFO -   - html_body: 'HTML_Body'
+2025-04-13 19:48:37,431 - INFO -   - image_path: 'Image_Attachment_Path'
+2025-04-13 19:48:37,431 - INFO - Checking for content data in 'email_data.csv'
+2025-04-13 19:48:37,439 - INFO - Found content in row 2
+2025-04-13 19:48:37,439 - INFO - Subject: 'Welcome to our newsletter!'
+2025-04-13 19:48:37,439 - INFO - HTML Content: Read (length: 297)
+2025-04-13 19:48:37,439 - INFO - Image Path: Provided (./h-da.png)
+2025-04-13 19:48:37,439 - INFO - Detected personalization tags in content
+2025-04-13 19:48:37,439 - INFO - Using content from 'email_data.csv' (row 2)
+2025-04-13 19:48:37,439 - INFO - Reading recipients from 'email_data.csv' using column 'EMAIL'
+2025-04-13 19:48:37,447 - INFO - Reading data from 'email_data.csv'
+2025-04-13 19:48:37,447 - INFO - Skipping row 2 (used for content)
+2025-04-13 19:48:37,447 - INFO - Found 2 valid email addresses
+2025-04-13 19:48:37,447 - INFO - Processing attachment from './h-da.png'
+2025-04-13 19:48:37,529 - INFO - Attachment created successfully (Type: image/png, Content-ID: email_image)
+2025-04-13 19:48:37,529 - INFO - Initializing SendGrid client
+2025-04-13 19:48:37,529 - INFO - Sending to 2 recipients in 1 batch(es)
+2025-04-13 19:48:37,529 - INFO - Processing batch 1/1 (2 recipients)
+2025-04-13 19:48:39,283 - INFO - Email sent to arhamawan529@gmail.com (Status: 202)
+2025-04-13 19:48:40,133 - INFO - Email sent to hexscope247x@gmail.com (Status: 202)
+2025-04-13 19:48:40,184 - INFO - ====== Email Sending Complete ======
+2025-04-13 19:48:40,184 - INFO - Total recipients processed: 2
+2025-04-13 19:48:40,184 - INFO - Successfully sent: 2
+2025-04-13 19:48:40,184 - INFO - All emails processed successfully
+2025-04-13 19:49:38,418 - INFO - Detected columns in 'email_data.csv':
+2025-04-13 19:49:38,418 - INFO -   - email: 'EMAIL'
+2025-04-13 19:49:38,418 - INFO -   - first_name: 'FIRST_NAME'
+2025-04-13 19:49:38,418 - INFO -   - last_name: 'LAST_NAME'
+2025-04-13 19:49:38,426 - INFO -   - subject: 'Subject'
+2025-04-13 19:49:38,428 - INFO -   - html_body: 'HTML_Body'
+2025-04-13 19:49:38,429 - INFO -   - image_path: 'Image_Attachment_Path'
+2025-04-13 19:49:38,429 - INFO - Checking for content data in 'email_data.csv'
+2025-04-13 19:49:38,429 - INFO - Found content in row 2
+2025-04-13 19:49:38,438 - INFO - Subject: 'Welcome to our newsletter!'
+2025-04-13 19:49:38,438 - INFO - HTML Content: Read (length: 297)
+2025-04-13 19:49:38,438 - INFO - Image Path: Provided (./h-da.png)
+2025-04-13 19:49:38,438 - INFO - Detected personalization tags in content
+2025-04-13 19:49:38,438 - INFO - Using content from 'email_data.csv' (row 2)
+2025-04-13 19:49:38,446 - INFO - Reading recipients from 'email_data.csv' using column 'EMAIL'
+2025-04-13 19:49:38,446 - INFO - Reading data from 'email_data.csv'
+2025-04-13 19:49:38,446 - INFO - Skipping row 2 (used for content)
+2025-04-13 19:49:38,446 - INFO - Found 2 valid email addresses
+2025-04-13 19:49:38,446 - INFO - Processing attachment from './h-da.png'
+2025-04-13 19:49:38,531 - INFO - Attachment created successfully (Type: image/png, Content-ID: email_image)
+2025-04-13 19:49:38,539 - INFO - Initializing SendGrid client
+2025-04-13 19:49:38,539 - INFO - Sending to 2 recipients in 1 batch(es)
+2025-04-13 19:49:38,539 - INFO - Processing batch 1/1 (2 recipients)
+2025-04-13 19:49:39,339 - INFO - Email sent to arhamawan529@gmail.com (Status: 202)
+2025-04-13 19:49:40,143 - INFO - Email sent to hexscope247x@gmail.com (Status: 202)
+2025-04-13 19:49:40,200 - INFO - ====== Email Sending Complete ======
+2025-04-13 19:49:40,200 - INFO - Total recipients processed: 2
+2025-04-13 19:49:40,200 - INFO - Successfully sent: 2
+2025-04-13 19:49:40,200 - INFO - All emails processed successfully
+2025-04-13 19:58:05,474 - INFO - Detected columns in './email_datasend.csv':
+2025-04-13 19:58:05,474 - INFO -   - email: 'EMAIL'
+2025-04-13 19:58:05,474 - INFO -   - first_name: 'first name'
+2025-04-13 19:58:05,482 - INFO -   - last_name: 'LAST_NAME'
+2025-04-13 19:58:05,482 - INFO -   - subject: 'EMAIL'
+2025-04-13 19:58:05,482 - INFO -   - html_body: 'CONTENT'
+2025-04-13 19:58:05,482 - INFO -   - image_path: 'Images'
+2025-04-13 19:58:05,482 - INFO - Checking for content data in './email_datasend.csv'
+2025-04-13 19:58:05,482 - INFO - Found content in row 2
+2025-04-13 19:58:05,482 - INFO - Subject: 'arhamathar11@gmail.com'
+2025-04-13 19:58:05,482 - INFO - HTML Content: Read (length: 311)
+2025-04-13 19:58:05,482 - INFO - Image Path: Provided (./h-da.png)
+2025-04-13 19:58:05,482 - INFO - Detected personalization tags in content
+2025-04-13 19:58:05,490 - INFO - Using content from './email_datasend.csv' (row 2)
+2025-04-13 19:58:05,490 - INFO - Reading recipients from './email_datasend.csv' using column 'EMAIL'
+2025-04-13 19:58:05,490 - INFO - Reading data from './email_datasend.csv'
+2025-04-13 19:58:05,490 - INFO - Skipping row 2 (used for content)
+2025-04-13 19:58:05,490 - INFO - Found 2 valid email addresses
+2025-04-13 19:58:05,490 - INFO - Processing attachment from './h-da.png'
+2025-04-13 19:58:05,576 - INFO - Attachment created successfully (Type: image/png, Content-ID: email_image)
+2025-04-13 19:58:05,576 - INFO - Initializing SendGrid client
+2025-04-13 19:58:05,576 - INFO - Sending to 2 recipients in 1 batch(es)
+2025-04-13 19:58:05,576 - INFO - Processing batch 1/1 (2 recipients)
+2025-04-13 19:58:07,214 - INFO - Email sent to arhamawan529@gmail.com (Status: 202)
+2025-04-13 19:58:08,453 - INFO - Email sent to hexscope247x@gmail.com (Status: 202)
+2025-04-13 19:58:08,506 - INFO - ====== Email Sending Complete ======
+2025-04-13 19:58:08,506 - INFO - Total recipients processed: 2
+2025-04-13 19:58:08,506 - INFO - Successfully sent: 2
+2025-04-13 19:58:08,506 - INFO - All emails processed successfully
+2025-04-13 19:59:07,888 - INFO - Detected columns in './email_datasend.csv':
+2025-04-13 19:59:07,888 - INFO -   - email: 'EMAIL'
+2025-04-13 19:59:07,888 - INFO -   - first_name: 'first name'
+2025-04-13 19:59:07,888 - INFO -   - last_name: 'LAST_NAME'
+2025-04-13 19:59:07,888 - INFO -   - subject: 'EMAIL'
+2025-04-13 19:59:07,888 - INFO -   - html_body: 'CONTENT'
+2025-04-13 19:59:07,888 - INFO -   - image_path: 'Images'
+2025-04-13 19:59:07,888 - INFO - Checking for content data in './email_datasend.csv'
+2025-04-13 19:59:07,888 - INFO - Found content in row 2
+2025-04-13 19:59:07,888 - INFO - Subject: 'arhamathar11@gmail.com'
+2025-04-13 19:59:07,888 - INFO - HTML Content: Read (length: 307)
+2025-04-13 19:59:07,896 - INFO - Image Path: Provided (./h-da.png)
+2025-04-13 19:59:07,896 - INFO - Detected personalization tags in content
+2025-04-13 19:59:07,896 - INFO - Using content from './email_datasend.csv' (row 2)
+2025-04-13 19:59:07,896 - INFO - Reading recipients from './email_datasend.csv' using column 'EMAIL'
+2025-04-13 19:59:07,896 - INFO - Reading data from './email_datasend.csv'
+2025-04-13 19:59:07,904 - INFO - Skipping row 2 (used for content)
+2025-04-13 19:59:07,904 - INFO - Found 2 valid email addresses
+2025-04-13 19:59:07,904 - INFO - Processing attachment from './h-da.png'
+2025-04-13 19:59:08,003 - INFO - Attachment created successfully (Type: image/png, Content-ID: email_image)
+2025-04-13 19:59:08,003 - INFO - Initializing SendGrid client
+2025-04-13 19:59:08,003 - INFO - Sending to 2 recipients in 1 batch(es)
+2025-04-13 19:59:08,003 - INFO - Processing batch 1/1 (2 recipients)
+2025-04-13 19:59:09,333 - INFO - Email sent to arhamawan529@gmail.com (Status: 202)
+2025-04-13 19:59:10,617 - INFO - Email sent to hexscope247x@gmail.com (Status: 202)
+2025-04-13 19:59:10,676 - INFO - ====== Email Sending Complete ======
+2025-04-13 19:59:10,676 - INFO - Total recipients processed: 2
+2025-04-13 19:59:10,676 - INFO - Successfully sent: 2
+2025-04-13 19:59:10,677 - INFO - All emails processed successfully
+2025-04-13 20:27:28,390 - INFO - Log level set to: INFO
+2025-04-13 20:27:28,466 - INFO - Script execution started.
+2025-04-13 20:27:28,466 - INFO - Test Mode: Enabled
+2025-04-13 20:27:28,466 - INFO - Sender configured as: {'email': 'default_sender@example.com'}
+2025-04-13 20:27:28,466 - INFO - SendGrid API Key found (ends with ...7u2U)
+2025-04-13 20:27:28,466 - INFO - Detecting columns in 'email_data.csv'...
+2025-04-13 20:27:28,466 - INFO - Detected columns mapping for 'email_data.csv':
+2025-04-13 20:27:28,466 - INFO -   - email: 'EMAIL'
+2025-04-13 20:27:28,466 - INFO -   - first_name: 'FIRST_NAME'
+2025-04-13 20:27:28,466 - INFO -   - last_name: 'LAST_NAME'
+2025-04-13 20:27:28,474 - INFO -   - subject: 'Subject'
+2025-04-13 20:27:28,474 - INFO -   - html_body: 'HTML_Body'
+2025-04-13 20:27:28,474 - INFO -   - image_path: 'Image_Attachment_Path'
+2025-04-13 20:27:28,474 - INFO - Attempting to load content from a row within the main recipient CSV: 'email_data.csv'
+2025-04-13 20:27:28,474 - INFO - Checking for content data row within 'email_data.csv'...
+2025-04-13 20:27:28,474 - INFO - Found content in row 2 of 'email_data.csv'
+2025-04-13 20:27:28,474 - INFO -   Subject: 'Welcome to our newsletter!'
+2025-04-13 20:27:28,474 - INFO -   HTML Content: Read (length: 311)
+2025-04-13 20:27:28,474 - INFO -   Image Path: Provided (./h-da.png)
+2025-04-13 20:27:28,474 - INFO - Personalization tags {{...}} detected in HTML content.
+2025-04-13 20:27:28,482 - INFO - Using email content acquired from: Main CSV ('email_data.csv', Row 2)
+2025-04-13 20:27:28,482 - INFO - Reading recipient data from 'email_data.csv' using email column 'EMAIL'.
+2025-04-13 20:27:28,482 - INFO - Will skip row number 2 (identified as content row).
+2025-04-13 20:27:28,482 - INFO - CSV Read Summary ('email_data.csv'):
+2025-04-13 20:27:28,482 - INFO -   - Total data rows processed: 3
+2025-04-13 20:27:28,482 - INFO -   - Skipped content row: 1 (Row 2)
+2025-04-13 20:27:28,482 - INFO -   - Valid recipients found: 2
+2025-04-13 20:27:28,482 - INFO - Processing attachment: './h-da.png' with Content-ID: 'email_image'
+2025-04-13 20:27:28,590 - INFO - Attachment created successfully (Type: image/png).
+2025-04-13 20:27:28,590 - INFO - Attachment prepared successfully.
+2025-04-13 20:27:28,590 - INFO - Initializing SendGrid client...
+2025-04-13 20:27:28,590 - INFO - SendGrid client initialized.
+2025-04-13 20:29:16,425 - INFO - Sending aborted by user confirmation.
+2025-04-13 20:29:26,966 - INFO - Log level set to: INFO
+2025-04-13 20:29:26,966 - INFO - Script execution started.
+2025-04-13 20:29:26,966 - INFO - Test Mode: Disabled
+2025-04-13 20:29:26,966 - INFO - Sender configured as: {'email': 'default_sender@example.com'}
+2025-04-13 20:29:26,966 - INFO - SendGrid API Key found (ends with ...7u2U)
+2025-04-13 20:29:26,966 - INFO - Detecting columns in 'email_data.csv'...
+2025-04-13 20:29:26,966 - INFO - Detected columns mapping for 'email_data.csv':
+2025-04-13 20:29:26,966 - INFO -   - email: 'EMAIL'
+2025-04-13 20:29:26,966 - INFO -   - first_name: 'FIRST_NAME'
+2025-04-13 20:29:26,966 - INFO -   - last_name: 'LAST_NAME'
+2025-04-13 20:29:26,966 - INFO -   - subject: 'Subject'
+2025-04-13 20:29:26,966 - INFO -   - html_body: 'HTML_Body'
+2025-04-13 20:29:26,966 - INFO -   - image_path: 'Image_Attachment_Path'
+2025-04-13 20:29:26,974 - INFO - Attempting to load content from a row within the main recipient CSV: 'email_data.csv'
+2025-04-13 20:29:26,974 - INFO - Checking for content data row within 'email_data.csv'...
+2025-04-13 20:29:26,974 - INFO - Found content in row 2 of 'email_data.csv'
+2025-04-13 20:29:26,974 - INFO -   Subject: 'Welcome to our newsletter!'
+2025-04-13 20:29:26,974 - INFO -   HTML Content: Read (length: 311)
+2025-04-13 20:29:26,974 - INFO -   Image Path: Provided (./h-da.png)
+2025-04-13 20:29:26,974 - INFO - Personalization tags {{...}} detected in HTML content.
+2025-04-13 20:29:26,982 - INFO - Using email content acquired from: Main CSV ('email_data.csv', Row 2)
+2025-04-13 20:29:26,982 - INFO - Reading recipient data from 'email_data.csv' using email column 'EMAIL'.
+2025-04-13 20:29:26,982 - INFO - Will skip row number 2 (identified as content row).
+2025-04-13 20:29:26,982 - INFO - CSV Read Summary ('email_data.csv'):
+2025-04-13 20:29:26,982 - INFO -   - Total data rows processed: 3
+2025-04-13 20:29:26,982 - INFO -   - Skipped content row: 1 (Row 2)
+2025-04-13 20:29:26,982 - INFO -   - Valid recipients found: 2
+2025-04-13 20:29:26,982 - INFO - Processing attachment: './h-da.png' with Content-ID: 'email_image'
+2025-04-13 20:29:27,065 - INFO - Attachment created successfully (Type: image/png).
+2025-04-13 20:29:27,065 - INFO - Attachment prepared successfully.
+2025-04-13 20:29:27,065 - INFO - Initializing SendGrid client...
+2025-04-13 20:29:27,065 - INFO - SendGrid client initialized.
+2025-04-13 20:29:35,613 - INFO - Sending aborted by user confirmation.
+2025-04-13 20:29:38,419 - INFO - Log level set to: INFO
+2025-04-13 20:29:38,419 - INFO - Script execution started.
+2025-04-13 20:29:38,427 - INFO - Test Mode: Enabled
+2025-04-13 20:29:38,427 - INFO - Sender configured as: {'email': 'default_sender@example.com'}
+2025-04-13 20:29:38,427 - INFO - SendGrid API Key found (ends with ...7u2U)
+2025-04-13 20:29:38,427 - INFO - Detecting columns in 'email_data.csv'...
+2025-04-13 20:29:38,427 - INFO - Detected columns mapping for 'email_data.csv':
+2025-04-13 20:29:38,427 - INFO -   - email: 'EMAIL'
+2025-04-13 20:29:38,427 - INFO -   - first_name: 'FIRST_NAME'
+2025-04-13 20:29:38,427 - INFO -   - last_name: 'LAST_NAME'
+2025-04-13 20:29:38,427 - INFO -   - subject: 'Subject'
+2025-04-13 20:29:38,427 - INFO -   - html_body: 'HTML_Body'
+2025-04-13 20:29:38,427 - INFO -   - image_path: 'Image_Attachment_Path'
+2025-04-13 20:29:38,427 - INFO - Attempting to load content from a row within the main recipient CSV: 'email_data.csv'
+2025-04-13 20:29:38,427 - INFO - Checking for content data row within 'email_data.csv'...
+2025-04-13 20:29:38,427 - INFO - Found content in row 2 of 'email_data.csv'
+2025-04-13 20:29:38,427 - INFO -   Subject: 'Welcome to our newsletter!'
+2025-04-13 20:29:38,435 - INFO -   HTML Content: Read (length: 311)
+2025-04-13 20:29:38,435 - INFO -   Image Path: Provided (./h-da.png)
+2025-04-13 20:29:38,435 - INFO - Personalization tags {{...}} detected in HTML content.
+2025-04-13 20:29:38,435 - INFO - Using email content acquired from: Main CSV ('email_data.csv', Row 2)
+2025-04-13 20:29:38,443 - INFO - Reading recipient data from 'email_data.csv' using email column 'EMAIL'.
+2025-04-13 20:29:38,443 - INFO - Will skip row number 2 (identified as content row).
+2025-04-13 20:29:38,443 - INFO - CSV Read Summary ('email_data.csv'):
+2025-04-13 20:29:38,443 - INFO -   - Total data rows processed: 3
+2025-04-13 20:29:38,443 - INFO -   - Skipped content row: 1 (Row 2)
+2025-04-13 20:29:38,443 - INFO -   - Valid recipients found: 2
+2025-04-13 20:29:38,443 - INFO - Processing attachment: './h-da.png' with Content-ID: 'email_image'
+2025-04-13 20:29:38,505 - INFO - Attachment created successfully (Type: image/png).
+2025-04-13 20:29:38,513 - INFO - Attachment prepared successfully.
+2025-04-13 20:29:38,513 - INFO - Initializing SendGrid client...
+2025-04-13 20:29:38,513 - INFO - SendGrid client initialized.
+2025-04-13 20:29:40,463 - INFO - User confirmed. Starting email sending process...
+2025-04-13 20:29:40,463 - INFO - Preparing to send to 2 recipients in 1 batch(es) of up to 1000.
+2025-04-13 20:29:40,463 - INFO - Processing Batch 1/1 (2 recipients)
+2025-04-13 20:29:40,463 - INFO - TEST MODE: Would send Batch 1 to 2 recipients.
+2025-04-13 20:29:40,463 - INFO - Email sending process finished.
+2025-04-13 20:29:40,463 - INFO - ====== Final Report ======
+2025-04-13 20:29:40,463 - INFO - Test Mode: True
+2025-04-13 20:29:40,471 - INFO - Total valid recipients targeted: 2
+2025-04-13 20:29:40,471 - INFO - Recipients processed in batches: 2
+2025-04-13 20:29:40,471 - INFO - Successfully processed/sent: 2
+2025-04-13 20:29:40,471 - INFO - Failed to process/send: 0
+2025-04-13 20:29:40,471 - INFO - Total script duration: 2.04 sec
+2025-04-13 20:29:40,471 - INFO - Sending phase duration: 0.00 sec
+2025-04-13 20:29:40,471 - INFO - Script execution finished.
+2025-04-13 20:30:03,023 - INFO - Log level set to: INFO
+2025-04-13 20:30:03,023 - INFO - Script execution started.
+2025-04-13 20:30:03,023 - INFO - Test Mode: Disabled
+2025-04-13 20:30:03,023 - INFO - Sender configured as: {'email': 'default_sender@example.com'}
+2025-04-13 20:30:03,023 - INFO - SendGrid API Key found (ends with ...7u2U)
+2025-04-13 20:30:03,023 - INFO - Detecting columns in 'email_data.csv'...
+2025-04-13 20:30:03,023 - INFO - Detected columns mapping for 'email_data.csv':
+2025-04-13 20:30:03,023 - INFO -   - email: 'EMAIL'
+2025-04-13 20:30:03,023 - INFO -   - first_name: 'FIRST_NAME'
+2025-04-13 20:30:03,023 - INFO -   - last_name: 'LAST_NAME'
+2025-04-13 20:30:03,023 - INFO -   - subject: 'Subject'
+2025-04-13 20:30:03,023 - INFO -   - html_body: 'HTML_Body'
+2025-04-13 20:30:03,023 - INFO -   - image_path: 'Image_Attachment_Path'
+2025-04-13 20:30:03,031 - INFO - Attempting to load content from a row within the main recipient CSV: 'email_data.csv'
+2025-04-13 20:30:03,031 - INFO - Checking for content data row within 'email_data.csv'...
+2025-04-13 20:30:03,031 - INFO - Found content in row 2 of 'email_data.csv'
+2025-04-13 20:30:03,031 - INFO -   Subject: 'Welcome to our newsletter!'
+2025-04-13 20:30:03,031 - INFO -   HTML Content: Read (length: 311)
+2025-04-13 20:30:03,031 - INFO -   Image Path: Provided (./h-da.png)
+2025-04-13 20:30:03,031 - INFO - Personalization tags {{...}} detected in HTML content.
+2025-04-13 20:30:03,039 - INFO - Using email content acquired from: Main CSV ('email_data.csv', Row 2)
+2025-04-13 20:30:03,039 - INFO - Reading recipient data from 'email_data.csv' using email column 'EMAIL'.
+2025-04-13 20:30:03,039 - INFO - Will skip row number 2 (identified as content row).
+2025-04-13 20:30:03,039 - INFO - CSV Read Summary ('email_data.csv'):
+2025-04-13 20:30:03,039 - INFO -   - Total data rows processed: 3
+2025-04-13 20:30:03,039 - INFO -   - Skipped content row: 1 (Row 2)
+2025-04-13 20:30:03,039 - INFO -   - Valid recipients found: 2
+2025-04-13 20:30:03,039 - INFO - Processing attachment: './h-da.png' with Content-ID: 'email_image'
+2025-04-13 20:30:03,109 - INFO - Attachment created successfully (Type: image/png).
+2025-04-13 20:30:03,109 - INFO - Attachment prepared successfully.
+2025-04-13 20:30:03,109 - INFO - Initializing SendGrid client...
+2025-04-13 20:30:03,109 - INFO - SendGrid client initialized.
+2025-04-13 20:30:08,104 - INFO - User confirmed. Starting email sending process...
+2025-04-13 20:30:08,104 - INFO - Preparing to send to 2 recipients in 1 batch(es) of up to 1000.
+2025-04-13 20:30:08,104 - INFO - Processing Batch 1/1 (2 recipients)
+2025-04-13 20:30:09,890 - ERROR - Batch 1: HTTPError sending batch (Status: 400). Attempt 1/5
+2025-04-13 20:30:09,890 - ERROR - Error Body: b'{"errors":[{"message":"The template_id is required when using dynamic templates","field":"template_id","help":"http://sendgrid.com/docs/API_Reference/Web_API_v3/Mail/errors.html#message.template_id"},{"message":"Unless a valid template_id is provided, the content parameter is required. There must be at least one defined content block. We typically suggest both text/plain and text/html blocks are included, but only one block is required.","field":"content","help":"http://sendgrid.com/docs/API_Reference/Web_API_v3/Mail/errors.html#message.content"}]}'
+2025-04-13 20:30:09,890 - INFO - Email sending process finished.
+2025-04-13 20:30:09,898 - INFO - ====== Final Report ======
+2025-04-13 20:30:09,899 - INFO - Test Mode: False
+2025-04-13 20:30:09,899 - INFO - Total valid recipients targeted: 2
+2025-04-13 20:30:09,899 - INFO - Recipients processed in batches: 2
+2025-04-13 20:30:09,899 - INFO - Successfully processed/sent: 0
+2025-04-13 20:30:09,899 - INFO - Failed to process/send: 2
+2025-04-13 20:30:09,899 - INFO - Total script duration: 6.88 sec
+2025-04-13 20:30:09,899 - INFO - Sending phase duration: 1.79 sec
+2025-04-13 20:30:09,899 - INFO - Script execution finished.
+2025-04-13 20:33:41,631 - INFO - Log level set to: INFO
+2025-04-13 20:33:41,631 - INFO - Script execution started.
+2025-04-13 20:33:41,631 - INFO - Test Mode: Disabled
+2025-04-13 20:33:41,639 - INFO - Sender configured as: {'email': 'default_sender@example.com'}
+2025-04-13 20:33:41,639 - INFO - SendGrid API Key found (ends with ...7u2U)
+2025-04-13 20:33:41,639 - INFO - Detecting columns in 'email_data.csv'...
+2025-04-13 20:33:41,639 - INFO - Detected columns mapping for 'email_data.csv':
+2025-04-13 20:33:41,639 - INFO -   - email: 'EMAIL'
+2025-04-13 20:33:41,639 - INFO -   - first_name: 'FIRST_NAME'
+2025-04-13 20:33:41,639 - INFO -   - last_name: 'LAST_NAME'
+2025-04-13 20:33:41,639 - INFO -   - subject: 'Subject'
+2025-04-13 20:33:41,639 - INFO -   - html_body: 'HTML_Body'
+2025-04-13 20:33:41,639 - INFO -   - image_path: 'Image_Attachment_Path'
+2025-04-13 20:33:41,647 - INFO - Attempting to load content from a row within the main recipient CSV: 'email_data.csv'
+2025-04-13 20:33:41,647 - INFO - Checking for content data row within 'email_data.csv'...
+2025-04-13 20:33:41,647 - INFO - Found content in row 2 of 'email_data.csv'
+2025-04-13 20:33:41,647 - INFO -   Subject: 'Welcome to our newsletter!'
+2025-04-13 20:33:41,647 - INFO -   HTML Content: Read (length: 311)
+2025-04-13 20:33:41,647 - INFO -   Image Path: Provided (./h-da.png)
+2025-04-13 20:33:41,647 - INFO - Personalization tags {{...}} detected in HTML content.
+2025-04-13 20:33:41,658 - INFO - Using email content acquired from: Main CSV ('email_data.csv', Row 2)
+2025-04-13 20:33:41,658 - INFO - Reading recipient data from 'email_data.csv' using email column 'EMAIL'.
+2025-04-13 20:33:41,666 - INFO - Will skip row number 2 (identified as content row).
+2025-04-13 20:33:41,675 - INFO - CSV Read Summary ('email_data.csv'):
+2025-04-13 20:33:41,675 - INFO -   - Total data rows processed: 3
+2025-04-13 20:33:41,683 - INFO -   - Skipped content row: 1 (Row 2)
+2025-04-13 20:33:41,683 - INFO -   - Valid recipients found: 2
+2025-04-13 20:33:41,691 - INFO - Processing attachment: './h-da.png' with Content-ID: 'email_image'
+2025-04-13 20:33:42,038 - INFO - Attachment created successfully (Type: image/png).
+2025-04-13 20:33:42,038 - INFO - Attachment prepared successfully.
+2025-04-13 20:33:42,038 - INFO - Initializing SendGrid client...
+2025-04-13 20:33:42,038 - INFO - SendGrid client initialized.
+2025-04-13 20:33:49,010 - INFO - User confirmed. Starting email sending process...
+2025-04-13 20:33:49,010 - INFO - Preparing to send to 2 recipients in 1 batch(es) of up to 1000.
+2025-04-13 20:33:49,010 - INFO - Processing Batch 1/1 (2 recipients)
+2025-04-13 20:33:50,404 - ERROR - Batch 1: HTTPError sending batch (Status: 400). Attempt 1/5
+2025-04-13 20:33:50,404 - ERROR - Error Body: b'{"errors":[{"message":"The template_id is required when using dynamic templates","field":"template_id","help":"http://sendgrid.com/docs/API_Reference/Web_API_v3/Mail/errors.html#message.template_id"},{"message":"Unless a valid template_id is provided, the content parameter is required. There must be at least one defined content block. We typically suggest both text/plain and text/html blocks are included, but only one block is required.","field":"content","help":"http://sendgrid.com/docs/API_Reference/Web_API_v3/Mail/errors.html#message.content"}]}'
+2025-04-13 20:33:50,404 - INFO - Email sending process finished.
+2025-04-13 20:33:50,412 - INFO - ====== Final Report ======
+2025-04-13 20:33:50,412 - INFO - Test Mode: False
+2025-04-13 20:33:50,412 - INFO - Total valid recipients targeted: 2
+2025-04-13 20:33:50,412 - INFO - Recipients processed in batches: 2
+2025-04-13 20:33:50,412 - INFO - Successfully processed/sent: 0
+2025-04-13 20:33:50,412 - INFO - Failed to process/send: 2
+2025-04-13 20:33:50,412 - INFO - Total script duration: 8.77 sec
+2025-04-13 20:33:50,412 - INFO - Sending phase duration: 1.39 sec
+2025-04-13 20:33:50,412 - INFO - Script execution finished.

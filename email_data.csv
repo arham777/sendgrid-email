@@ -1,0 +1,4 @@
+EMAIL,FIRST_NAME,LAST_NAME,COMPANY,Subject,HTML_Body,Image_Attachment_Path
+arhamathar11@gmail.com,Arham,Athar,Newsletter Company,Welcome to our newsletter!,"<html><body><h1>Hi {{FIRST_NAME}},</br>Welcome to Our Newsletter</h1><p>Hello everyone,</p><img src=""cid:/h-da.png"" alt=""image"" > <p>This is the email content that will be sent to all recipients. It can contain personalization like {{FIRST_NAME}} and {{COMPANY}}.</p><p>Thanks for subscribing!</p></body></html>",./h-da.png
+arhamawan529@gmail.com,Arham,Awan,XYZ Inc,,,
+hexscope247x@gmail.com,Alex,Morgan,123 Industries,,,
