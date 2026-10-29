@@ -1,0 +1,533 @@
+import os
+import csv
+import base64 # For encoding image data
+import mimetypes # For guessing image type
+import re # For email validation
+import time # For rate limiting
+import logging # For proper logging
+import argparse # For command line arguments
+from dotenv import load_dotenv
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import (
+    Mail, Attachment, FileContent, FileName,
+    FileType, Disposition, ContentId, # For attachments/embedding
+    Personalization, To # For personalization
+)
+
+# --- Setup Logging ---
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.StreamHandler(),
+        logging.FileHandler('email_sender.log')
+    ]
+)
+logger = logging.getLogger('email_sender')
+
+# --- Configuration ---
+# Load configuration from environment
+load_dotenv()
+SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
+FROM_EMAIL = os.getenv('FROM_EMAIL', 'arhamawan200@gmail.com')  # Default can be overridden in .env
+FROM_NAME = os.getenv('FROM_NAME', '')  # Optional sender name
+
+# Recipients CSV Config (can be overridden via command line)
+CSV_RECIPIENTS_FILENAME = os.getenv('RECIPIENTS_CSV', 'recipients.csv')
+EMAIL_COLUMN_HEADER = os.getenv('EMAIL_HEADER', 'EMAIL')
+
+# Content CSV Config (Only used if CSV mode is selected)
+CSV_CONTENT_FILENAME = os.getenv('CONTENT_CSV', 'content.csv')
+CONTENT_SUBJECT_HEADER = os.getenv('SUBJECT_HEADER', 'Subject')
+CONTENT_HTML_HEADER = os.getenv('HTML_HEADER', 'HTML_Body')
+CONTENT_IMAGE_PATH_HEADER = os.getenv('IMAGE_HEADER', 'Image_Attachment_Path')
+
+# Attachment Settings
+ATTACHMENT_CONTENT_ID = os.getenv('ATTACHMENT_CID', 'email_image')
+
+# SendGrid Settings
+BATCH_SIZE = int(os.getenv('BATCH_SIZE', '1000'))  # Process recipients in batches
+RATE_LIMIT_DELAY = float(os.getenv('RATE_LIMIT_DELAY', '0'))  # Seconds to wait between batches
+
+# Email validation regex
+EMAIL_REGEX = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+
+# --- Helper Functions ---
+
+def validate_email(email):
+    """Validates email format using regex."""
+    return bool(re.match(EMAIL_REGEX, email))
+
+def get_recipients_from_csv(filename, column_header, validate=True):
+    """Reads email addresses from the specified column_header of a CSV file.
+    
+    Args:
+        filename: Path to the CSV file
+        column_header: Column header containing email addresses
+        validate: Whether to validate email formats
+        
+    Returns:
+        List of dictionaries containing recipient data (email and other fields for personalization)
+        or None if error
+    """
+    recipients = []
+    invalid_emails = []
+    logger.info(f"Reading recipients from '{filename}'")
+    
+    try:
+        with open(filename, mode='r', newline='', encoding='utf-8-sig') as csvfile:
+            reader = csv.DictReader(csvfile)
+            if column_header not in reader.fieldnames:
+                logger.error(f"CSV file '{filename}' missing required header '{column_header}'")
+                logger.error(f"Available headers: {reader.fieldnames}")
+                return None
+                
+            logger.info(f"Reading data from '{filename}'")
+            for row_num, row in enumerate(reader, start=2):
+                if row and column_header in row:
+                    email_address = row[column_header].strip()
+                    if email_address:
+                        # Validate email format
+                        if validate and not validate_email(email_address):
+                            invalid_emails.append((row_num, email_address))
+                            continue
+                            
+                        # Store all row data for personalization
+                        recipients.append(row)
+            
+            # Report on findings
+            valid_count = len(recipients)
+            invalid_count = len(invalid_emails)
+            
+            if valid_count > 0:
+                logger.info(f"Found {valid_count} valid email addresses")
+            else:
+                logger.warning(f"No valid emails found in column '{column_header}'")
+                
+            if invalid_count > 0:
+                logger.warning(f"Found {invalid_count} invalid email addresses")
+                for row_num, email in invalid_emails[:5]:  # Show first 5 invalid emails
+                    logger.warning(f"  Row {row_num}: '{email}'")
+                if invalid_count > 5:
+                    logger.warning(f"  ... and {invalid_count - 5} more")
+                    
+            return recipients if valid_count > 0 else None
+
+    except FileNotFoundError:
+        logger.error(f"Recipients CSV file '{filename}' not found")
+        return None
+    except Exception as e:
+        logger.error(f"Error reading recipients CSV '{filename}': {e}")
+        return None
+
+def get_content_from_input():
+    """Gets subject, HTML content, and optional image path from user input."""
+    logger.info("Getting email content via input")
+    
+    # Get subject
+    subject = input("Enter Subject: ").strip()
+    while not subject:
+        logger.error("Subject cannot be empty")
+        subject = input("Enter Subject: ").strip()
+
+    # Get HTML content
+    print("Enter HTML Content (press Enter twice to finish):")
+    html_lines = []
+    try:
+        while True:
+            line = input()
+            if line == "":
+                break
+            html_lines.append(line)
+    except EOFError:  # Handles pasting multi-line content ending without double Enter
+        pass
+        
+    html_content = "\n".join(html_lines).strip()
+    while not html_content:
+        logger.error("HTML Content cannot be empty")
+        print("Enter HTML Content (press Enter twice to finish):")
+        html_lines = []
+        try:
+            while True:
+                line = input()
+                if line == "":
+                    break
+                html_lines.append(line)
+        except EOFError:
+            pass
+        html_content = "\n".join(html_lines).strip()
+
+    # Check for personalization
+    if "{" in html_content or "}" in html_content:
+        logger.info("Detected potential personalization tags in content")
+        print("\nIMPORTANT: For personalization, use {{field_name}} syntax where field_name")
+        print("matches a column header in your recipients CSV file.")
+        print("Example: 'Hello {{NAME}},' will be replaced with recipient's NAME value.\n")
+
+    # Get image path
+    image_path = input("Enter full path to image attachment (optional, press Enter to skip): ").strip()
+
+    return {
+        'subject': subject,
+        'html_content': html_content,
+        'image_path': image_path or None  # Store None if empty
+    }
+
+def get_content_from_csv(filename, subject_hdr, html_hdr, image_hdr):
+    """Reads subject, HTML content, and optional image path from the first data row of a CSV."""
+    logger.info(f"Reading content from CSV '{filename}'")
+    
+    try:
+        with open(filename, mode='r', newline='', encoding='utf-8-sig') as csvfile:
+            reader = csv.DictReader(csvfile)
+            required_headers = {subject_hdr, html_hdr}
+            available_headers = set(reader.fieldnames)
+
+            if not required_headers.issubset(available_headers):
+                missing = required_headers - available_headers
+                logger.error(f"Content CSV '{filename}' missing required headers: {', '.join(missing)}")
+                logger.error(f"Available headers: {reader.fieldnames}")
+                return None
+
+            # Read the first data row
+            first_row = next(reader, None)
+            if not first_row:
+                logger.error(f"Content CSV '{filename}' is empty or contains only headers")
+                return None
+
+            subject = first_row.get(subject_hdr, '').strip()
+            html_content = first_row.get(html_hdr, '').strip()
+            image_path = None
+            if image_hdr in available_headers:
+                image_path = first_row.get(image_hdr, '').strip() or None
+
+            if not subject:
+                logger.error(f"Subject value is empty in column '{subject_hdr}'")
+                return None
+            if not html_content:
+                logger.error(f"HTML content value is empty in column '{html_hdr}'")
+                return None
+
+            logger.info(f"Subject: '{subject}'")
+            logger.info(f"HTML Content: Read (length: {len(html_content)})")
+            logger.info(f"Image Path: {'Provided (' + image_path + ')' if image_path else 'Not Provided'}")
+
+            # Check for personalization
+            if "{" in html_content or "}" in html_content:
+                logger.info("Detected potential personalization tags in content")
+                print("\nIMPORTANT: For personalization, use {{field_name}} syntax where field_name")
+                print("matches a column header in your recipients CSV file.")
+                print("Example: 'Hello {{NAME}},' will be replaced with recipient's NAME value.\n")
+
+            return {
+                'subject': subject,
+                'html_content': html_content,
+                'image_path': image_path
+            }
+
+    except FileNotFoundError:
+        logger.error(f"Content CSV file '{filename}' not found")
+        return None
+    except StopIteration:
+        logger.error(f"Content CSV '{filename}' seems to be empty (no data rows)")
+        return None
+    except Exception as e:
+        logger.error(f"Error reading content CSV '{filename}': {e}")
+        return None
+
+def create_attachment(image_path, content_id):
+    """Creates a SendGrid Attachment object from an image file path."""
+    if not image_path:
+        return None
+
+    logger.info(f"Processing attachment from '{image_path}'")
+    
+    try:
+        # Check if file exists before opening
+        if not os.path.isfile(image_path):
+            logger.error(f"Image file not found at path: {image_path}")
+            return None
+
+        # Read image data
+        with open(image_path, 'rb') as f:
+            data = f.read()
+
+        # Check file size
+        file_size_kb = len(data) / 1024
+        if file_size_kb > 10240:  # 10MB limit
+            logger.warning(f"Attachment is {file_size_kb:.2f}KB - Emails with large attachments may be rejected")
+
+        # Encode to Base64
+        encoded_file = base64.b64encode(data).decode()
+
+        # Guess MIME type
+        file_type, _ = mimetypes.guess_type(image_path)
+        if not file_type:
+            file_type = 'application/octet-stream'  # Default if type cannot be guessed
+            logger.warning(f"Could not determine MIME type for '{image_path}', using default: {file_type}")
+
+        # Create Attachment object
+        attachment = Attachment(
+            FileContent(encoded_file),
+            FileName(os.path.basename(image_path)),  # Use just the filename
+            FileType(file_type),
+            Disposition('inline'),  # 'inline' for embedding, 'attachment' for attaching
+            ContentId(content_id)   # Crucial for embedding with <img src='cid:xxx'>
+        )
+        logger.info(f"Attachment created successfully (Type: {file_type}, Content-ID: {content_id})")
+        return attachment
+
+    except FileNotFoundError:
+        logger.error(f"Image file not found: {image_path}")
+        return None
+    except Exception as e:
+        logger.error(f"Error creating attachment for '{image_path}': {e}")
+        return None
+
+def send_personalized_emails(sg_client, from_email, from_name, recipients, subject, html_content, attachment=None, test_mode=False, batch_size=1000, rate_delay=0):
+    """Sends personalized emails to recipients in batches."""
+    total_recipients = len(recipients)
+    batches = [recipients[i:i+batch_size] for i in range(0, total_recipients, batch_size)]
+    total_batches = len(batches)
+    
+    logger.info(f"Sending to {total_recipients} recipients in {total_batches} batch(es)")
+    if test_mode:
+        logger.info("TEST MODE: Emails will not actually be sent")
+    
+    success_count = 0
+    failed_batches = []
+    
+    for batch_num, batch in enumerate(batches, 1):
+        batch_recipients = len(batch)
+        logger.info(f"Processing batch {batch_num}/{total_batches} ({batch_recipients} recipients)")
+        
+        try:
+            # Process each recipient in the batch
+            for recipient_data in batch:
+                email = recipient_data[EMAIL_COLUMN_HEADER].strip()
+                
+                # Skip if somehow an invalid email made it this far
+                if not validate_email(email):
+                    logger.warning(f"Skipping invalid email: {email}")
+                    continue
+                
+                # Prepare from_email (with name if provided)
+                from_email_obj = from_email
+                if from_name:
+                    from_email_obj = f"{from_name} <{from_email}>"
+                
+                # Create personalized content for this recipient
+                personalized_content = html_content
+                has_personalization = False
+                
+                # Process each potential placeholder in the content
+                for key, value in recipient_data.items():
+                    if value:  # Only replace if value exists
+                        # Try both case variants: {{NAME}} and {{Name}}
+                        placeholders = [
+                            "{{" + key + "}}",
+                            "{{" + key.upper() + "}}",
+                            "{{" + key.lower() + "}}",
+                            "{{" + key.capitalize() + "}}"
+                        ]
+                        for placeholder in placeholders:
+                            if placeholder in personalized_content:
+                                personalized_content = personalized_content.replace(placeholder, value)
+                                has_personalization = True
+                
+                # For the recipient name, we'll check various fields
+                recipient_name = None
+                if "FIRST_NAME" in recipient_data and recipient_data["FIRST_NAME"]:
+                    recipient_name = recipient_data["FIRST_NAME"]
+                    if "LAST_NAME" in recipient_data and recipient_data["LAST_NAME"]:
+                        recipient_name += f" {recipient_data['LAST_NAME']}"
+                elif "NAME" in recipient_data and recipient_data["NAME"]:
+                    recipient_name = recipient_data["NAME"]
+                elif "Name" in recipient_data and recipient_data["Name"]:
+                    recipient_name = recipient_data["Name"]
+                
+                # Format recipient for SendGrid
+                to_email = email
+                if recipient_name:
+                    to_email = f"{recipient_name} <{email}>"
+                
+                # Create a simple message with personalized content
+                message = Mail(
+                    from_email=from_email_obj,
+                    to_emails=to_email,
+                    subject=subject,
+                    html_content=personalized_content
+                )
+                
+                # Add attachment if provided
+                if attachment:
+                    message.add_attachment(attachment)
+                
+                # Send the email (or simulate in test mode)
+                if not test_mode:
+                    response = sg_client.send(message)
+                    status_code = response.status_code
+                    
+                    if 200 <= status_code < 300:  # Success
+                        logger.info(f"Email sent to {email} (Status: {status_code})")
+                        success_count += 1
+                    else:
+                        logger.error(f"Failed to send to {email} (Status: {status_code})")
+                        if hasattr(response, 'body'):
+                            logger.error(f"Response Body: {response.body}")
+                        # We don't increment failed_batches here since we're tracking individual emails
+                else:
+                    # Test mode - simulate success
+                    logger.info(f"TEST MODE - Would send to: {email}")
+                    if has_personalization:
+                        logger.info(f"TEST MODE - Personalized content preview: {personalized_content[:100]}...")
+                    success_count += 1
+                
+                # Small delay between individual emails to avoid rate limits
+                time.sleep(0.05)
+            
+            # Respect rate limits if specified and if more batches remain
+            if rate_delay > 0 and batch_num < total_batches:
+                logger.info(f"Rate limiting: waiting {rate_delay} seconds before next batch")
+                time.sleep(rate_delay)
+                
+        except Exception as e:
+            logger.error(f"Error sending batch {batch_num}: {e}")
+            if hasattr(e, 'body'):
+                logger.error(f"Error details: {e.body}")
+            failed_batches.append(batch_num)
+            
+    return success_count, failed_batches
+
+def parse_arguments():
+    """Parse command line arguments."""
+    parser = argparse.ArgumentParser(description='SendGrid Bulk Email Sender')
+    parser.add_argument('--test', action='store_true', help='Test mode - validate but do not send emails')
+    parser.add_argument('--csv', action='store_true', help='Use CSV for content instead of input prompts')
+    parser.add_argument('--recipients', type=str, help=f'Recipients CSV file (default: {CSV_RECIPIENTS_FILENAME})')
+    parser.add_argument('--content', type=str, help=f'Content CSV file (default: {CSV_CONTENT_FILENAME})')
+    parser.add_argument('--log-level', type=str, choices=['DEBUG', 'INFO', 'WARNING', 'ERROR'], default='INFO',
+                       help='Set logging level')
+    parser.add_argument('--batch-size', type=int, help=f'Recipients per batch (default: {BATCH_SIZE})')
+    parser.add_argument('--delay', type=float, help=f'Seconds between batches (default: {RATE_LIMIT_DELAY})')
+    
+    return parser.parse_args()
+
+# --- Main Execution ---
+def main():
+    """Main function to orchestrate the email sending process."""
+    print("=====================================")
+    print(" SendGrid Bulk Email Script ")
+    print("=====================================")
+    
+    # Parse command line arguments
+    args = parse_arguments()
+    
+    # Set log level from arguments
+    logger.setLevel(getattr(logging, args.log_level))
+    
+    # Override defaults with command line arguments if provided
+    recipients_file = args.recipients or CSV_RECIPIENTS_FILENAME
+    content_file = args.content or CSV_CONTENT_FILENAME
+    test_mode = args.test
+    batch_size = args.batch_size or BATCH_SIZE
+    rate_delay = args.delay if args.delay is not None else RATE_LIMIT_DELAY
+    
+    if test_mode:
+        logger.info("TEST MODE ENABLED - Emails will not actually be sent")
+    
+    # Verify API key
+    if not SENDGRID_API_KEY:
+        logger.error("SENDGRID_API_KEY not found in environment variables")
+        logger.error("Please ensure a .env file exists with your key")
+        return
+
+    # 1. Choose Content Source
+    content_data = None
+    if args.csv:
+        content_data = get_content_from_csv(
+            content_file,
+            CONTENT_SUBJECT_HEADER,
+            CONTENT_HTML_HEADER,
+            CONTENT_IMAGE_PATH_HEADER
+        )
+    else:
+        while True:
+            mode = input("Get content from (1) Input Fields or (2) CSV File? [1/2]: ").strip()
+            if mode == '1':
+                content_data = get_content_from_input()
+                break
+            elif mode == '2':
+                content_data = get_content_from_csv(
+                    content_file,
+                    CONTENT_SUBJECT_HEADER,
+                    CONTENT_HTML_HEADER,
+                    CONTENT_IMAGE_PATH_HEADER
+                )
+                break
+            else:
+                logger.error("Invalid choice. Please enter 1 or 2")
+
+    if not content_data:
+        logger.error("Failed to obtain email content - Exiting")
+        return
+
+    # 2. Get Recipients
+    recipient_data = get_recipients_from_csv(recipients_file, EMAIL_COLUMN_HEADER)
+
+    if not recipient_data:
+        logger.error("Failed to obtain recipients or recipient list is empty - Exiting")
+        return
+
+    # 3. Create Attachment (if image path provided)
+    email_attachment = None
+    if content_data.get('image_path'):
+        email_attachment = create_attachment(content_data['image_path'], ATTACHMENT_CONTENT_ID)
+        if not email_attachment and content_data.get('image_path'):
+            logger.warning("An image path was provided, but attachment creation failed. Sending without image")
+
+    # 4. Initialize SendGrid client
+    try:
+        logger.info("Initializing SendGrid client")
+        sg = SendGridAPIClient(SENDGRID_API_KEY)
+    except Exception as e:
+        logger.error(f"Failed to initialize SendGrid client: {e}")
+        return
+
+    # 5. Send emails in batches with personalization
+    success_count, failed_batches = send_personalized_emails(
+        sg_client=sg,
+        from_email=FROM_EMAIL,
+        from_name=FROM_NAME,
+        recipients=recipient_data,
+        subject=content_data['subject'],
+        html_content=content_data['html_content'],
+        attachment=email_attachment,
+        test_mode=test_mode,
+        batch_size=batch_size,
+        rate_delay=rate_delay
+    )
+    
+    # 6. Report results
+    total_recipients = len(recipient_data)
+    logger.info("====== Email Sending Complete ======")
+    logger.info(f"Total recipients processed: {total_recipients}")
+    logger.info(f"Successfully sent: {success_count}")
+    
+    if failed_batches:
+        logger.warning(f"Failed batches: {len(failed_batches)}")
+        failed_count = total_recipients - success_count
+        logger.warning(f"Approximately {failed_count} emails failed to send")
+    else:
+        logger.info("All emails processed successfully")
+        
+    if test_mode:
+        logger.info("TEST MODE: No emails were actually sent")
+    
+    print("\n=====================================")
+    print(" Script Finished ")
+    print("=====================================")
+
+# --- Run the main function ---
+if __name__ == "__main__":
+    main()

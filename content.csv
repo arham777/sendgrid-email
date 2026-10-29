@@ -1,0 +1,2 @@
+Subject,HTML_Body,Image_Attachment_Path
+Mail through csv content auto using SendGrid,"<html><body><h1>Check out our latest update!</h1><h3>Hi {{FIRST_NAME}},<p>We have some exciting news to share with you. <a href=""https://youtube.com"">Learn more here</a>. <br><img src=""cid:email_image"" alt=""Our New Feature""></p></body></html>",./h-da.png
